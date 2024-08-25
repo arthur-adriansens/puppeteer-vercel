@@ -1,11 +1,10 @@
 /** @format */
 
-const chromium = require("@sparticuz/chromium");
-const puppeteer = require("puppeteer-core");
+import chromium from "@sparticuz/chromium";
+import puppeteer from "puppeteer-core";
 
-exports.handler = async (event, context, callback) => {
-    let result = null;
-    let browser = null;
+export async function main() {
+    let result, browser;
 
     try {
         browser = await puppeteer.launch({
@@ -16,18 +15,17 @@ exports.handler = async (event, context, callback) => {
             ignoreHTTPSErrors: true,
         });
 
-        let page = await browser.newPage();
-
-        await page.goto(event.url || "https://google.com");
+        const page = await browser.newPage();
+        await page.goto("https://google.com");
 
         result = await page.title();
     } catch (error) {
-        return callback(error);
+        return error;
     } finally {
         if (browser !== null) {
             await browser.close();
         }
     }
 
-    return callback(null, result);
-};
+    return result;
+}
