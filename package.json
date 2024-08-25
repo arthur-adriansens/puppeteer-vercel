@@ -24,6 +24,7 @@
   "homepage": "https://github.com/arthur-adriansens/puppeteer-vercel#readme",
   "dependencies": {
     "@sparticuz/chromium": "110.0.0",
+    "@sparticuz/chromium-min": "^127.0.0",
     "puppeteer": "^23.1.1",
     "puppeteer-core": "19.6.3"
   }

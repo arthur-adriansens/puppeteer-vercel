@@ -3,13 +3,13 @@
 async function main() {
     let browser;
     if (process.env.NODE_ENV !== "development") {
-        const chromium = require("@sparticuz/chromium");
+        const chromium = require("@sparticuz/chromium-min");
         const puppeteer = require("puppeteer-core");
 
         browser = await puppeteer.launch({
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
-            executablePath: await chromium.executablePath(),
+            executablePath: await chromium.executablePath("/opt/chromium"),
             headless: chromium.headless,
         });
     } else {
