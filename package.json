@@ -1,0 +1,29 @@
+{
+  "name": "puppeteer-vercel",
+  "version": "1.0.0",
+  "description": "working Puppeteer on Vercel example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arthur-adriansens/puppeteer-vercel.git"
+  },
+  "keywords": [
+    "vercel",
+    "puppeteer",
+    "js",
+    "node"
+  ],
+  "author": "Arthur Adriansens",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/arthur-adriansens/puppeteer-vercel/issues"
+  },
+  "homepage": "https://github.com/arthur-adriansens/puppeteer-vercel#readme",
+  "dependencies": {
+    "@sparticuz/chromium": "110.0.0",
+    "puppeteer-core": "19.6.3"
+  }
+}
