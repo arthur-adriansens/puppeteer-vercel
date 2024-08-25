@@ -2,8 +2,7 @@
   "name": "puppeteer-vercel",
   "version": "1.0.0",
   "description": "working Puppeteer on Vercel example",
-  "main": "server.js",
-  "type": "module",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -25,6 +24,7 @@
   "homepage": "https://github.com/arthur-adriansens/puppeteer-vercel#readme",
   "dependencies": {
     "@sparticuz/chromium": "110.0.0",
+    "puppeteer": "^23.1.1",
     "puppeteer-core": "19.6.3"
   }
 }

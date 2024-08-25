@@ -1,31 +1,26 @@
 /** @format */
 
-import chromium from "@sparticuz/chromium";
-import puppeteer from "puppeteer-core";
+async function main() {
+    let browser;
+    if (process.env.NODE_ENV !== "development") {
+        const chromium = require("@sparticuz/chromium");
+        const puppeteer = require("puppeteer-core");
 
-export async function main() {
-    let result, browser;
-
-    try {
         browser = await puppeteer.launch({
             args: chromium.args,
             defaultViewport: chromium.defaultViewport,
             executablePath: await chromium.executablePath(),
             headless: chromium.headless,
-            ignoreHTTPSErrors: true,
         });
-
-        const page = await browser.newPage();
-        await page.goto("https://google.com");
-
-        result = await page.title();
-    } catch (error) {
-        return error;
-    } finally {
-        if (browser !== null) {
-            await browser.close();
-        }
+    } else {
+        const puppeteer = require("puppeteer");
+        browser = await puppeteer.launch({ headless: "new" });
     }
 
-    return result;
+    const page = await browser.newPage();
+    await page.goto("https://google.com");
+    console.log(await page.title());
+    await browser.close();
 }
+
+main().catch((error) => console.error(error));
